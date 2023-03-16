@@ -13,8 +13,7 @@ export class Order {
     @IsIn(['one-time', 'subscription'])
     orderMethod: "one-time" | "subscription";
 
-    @Column()
-    @IsNotEmpty()
+    @Column({default: 0})
     discount: number;
 
     @Column()
