@@ -7,4 +7,22 @@ import { User } from "./user.entity";
 export class UserService{
     // userRepository injection
     constructor(@InjectRepository(User) private userRepository: Repository<User>){}
+
+    /**
+     * saves a user object to database
+     * @param user - User object
+     * @returns an inserted user data with a promise
+     */
+    save(user: User): Promise<User>{
+        return this.userRepository.save(user);
+    }
+
+    /**
+     * gets a user by id
+     * @param id - user id to get
+     * @returns - a user object with a promise
+     */
+    getById(id: number): Promise<User>{
+        return this.userRepository.findOneBy({id});
+    }
 }
