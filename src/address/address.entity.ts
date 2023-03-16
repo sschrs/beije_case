@@ -31,6 +31,8 @@ export class Address {
     //relations
     @ManyToOne(type => User, user => user.addresses, { cascade: ['insert', 'update'] })
     user: User;
+    @Column()
+    userId;
 
     @OneToMany(type => Order, order => order.address, { cascade: ['insert', 'update'] })
     orders: Order[];
