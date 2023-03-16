@@ -2,6 +2,11 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
+import { AddressModule } from './address/address.module';
+import { OrderModule } from './order/order.module';
+import { ProductModule } from './product/product.module';
+import { SubscriptionModule } from './subscription/subscription.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -16,10 +21,14 @@ import { DataSource } from 'typeorm';
       database: process.env.DATABASE_NAME,
       autoLoadEntities: true,
       synchronize: true
-    })
-  ],
-  controllers: [],
-  providers: [],
+    }),
+    //modules
+    UserModule,
+    AddressModule,
+    OrderModule,
+    ProductModule,
+    SubscriptionModule
+  ] 
 })
 export class AppModule {
   //inject data source
