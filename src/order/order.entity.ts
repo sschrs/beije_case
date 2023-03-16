@@ -16,9 +16,9 @@ export class Order {
     @Column({default: 0})
     discount: number;
 
-    @Column()
-    @IsIn(['reveived', 'inProgress', 'shipped', 'completed'])
-    orderStatus: "reveived" | "inProgress" | "shipped" | "completed"
+    @Column({default: 'received'})
+    @IsIn(['received', 'inProgress', 'shipped', 'completed'])
+    orderStatus: "received" | "inProgress" | "shipped" | "completed"
 
     @CreateDateColumn()
     orderDate: Date;
@@ -29,7 +29,6 @@ export class Order {
     details: OrderDetail[];
 
     @ManyToOne(type => User, user => user.orders, { cascade: ['insert', 'update'] })
-    @IsNotEmptyObject()
     user: User;
     @Column()
     userId: number;
