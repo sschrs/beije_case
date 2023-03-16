@@ -1,7 +1,11 @@
 import { createCipheriv, randomBytes, scrypt } from "crypto";
 import { promisify } from "util";
 
-
+/**
+ * encrypts and returns a string
+ * @param data text to be encrypted
+ * @returns encrypted text
+ */
 export const encrypt = async (data: string) => {
     const iv = randomBytes(16);
     const password = process.env.ENCRYPTION_KEY;
