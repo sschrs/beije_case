@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
+import { encrypt } from "src/shared/encryption.helper";
 import { Repository } from "typeorm";
 import { User } from "./user.entity";
 
@@ -13,7 +14,8 @@ export class UserService{
      * @param user - User object
      * @returns an inserted user data with a promise
      */
-    save(user: User): Promise<User>{
+    async save(user: User): Promise<User>{
+        user.password = await encrypt(user.password);
         return this.userRepository.save(user);
     }
 
