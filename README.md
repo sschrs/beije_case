@@ -17,7 +17,8 @@ TaskService watches records whose nextOrder date is the same as the current date
 * Nest.js
 * TypeScript
 * MySQL
-* Postman (Production/Test)
+* Postman (Development/Test)
+* MAMP (Development)
 
 ### Project Structure
 ```
@@ -71,3 +72,15 @@ src/
 
 ### Database - ER Diagram
 <img src="https://github.com/sschrs/beije_case/blob/main/resources/er_diagram.png?raw=true">
+
+### Installation
+```shell
+git clone https://github.com/sschrs/beije_case.git
+cd beije_case
+npm install
+```
+You can configure MySQL using the .env file.
+```shell
+npm start dev #development
+npm start prod #production
+```
