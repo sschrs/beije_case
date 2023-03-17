@@ -21,7 +21,7 @@ export class UserController{
         if (!newUser) throw new HttpException(
             new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "an unexpected error occurred", "/users"),HttpStatus.INTERNAL_SERVER_ERROR)
         
-        return new ApiResponse(HttpStatus.CREATED, "user created successfully", "/users", {newUser});
+        return new ApiResponse(HttpStatus.CREATED, "user created successfully", "/users", {newUser: new UserDTO(newUser)});
     }
 
     /**
