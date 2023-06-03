@@ -1,6 +1,5 @@
 <div align="center">
-    <h3>Beije Internship Case</h3>
-    <h4>Subscription Tracker</h4>
+    <h3>Subscription Tracker</h3>
 </div>
 <hr>
 
